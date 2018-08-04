@@ -1,0 +1,21 @@
+{
+  "name": "restaurant-rsvp",
+  "version": "1.0.0",
+  "description": "A restaurant table reservation app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haz314/restaurant-rsvp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haz314/restaurant-rsvp/issues"
+  },
+  "homepage": "https://github.com/haz314/restaurant-rsvp#readme"
+}

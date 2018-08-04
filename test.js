@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 
 // ** Variable Library
 let numTables = 5;
+let count = 0;
 let tables = [
     {
         name: null,
@@ -60,19 +61,38 @@ app.post("/api/tables", function (req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body-parser middleware
     let newTable = req.body;
-
     console.log(newTable);
 
     // Check for open tables
     if (tables.length < numTables) {
-        // Add reservation
-        tables.push(newTable);
-        res.json(newTable);
+        // Unshift first element to post rsvp
+        if (count == 0) {
+            // Do only once by tying to count
+            tables.splice(0);
+            count++;
+            newTable.tableID = count;
+            tables.push(newTable);
+        } else {
+            // Add reservation
+            count++;
+            newTable.tableID = count;
+            tables.push(newTable);
+            res.json(newTable);
+        }
     } else {
-        // Wait reservation
-        waitList.push(newTable);
-        res.json(newTable);
-    }
+        // If tables are full send the rsvp to wait list
+        if (count == 5) {
+            waitList.splice(0);
+            count++;
+            newTable.tableID = count;
+            waitList.push(newTable);
+        } else {
+            count++;
+            newTable.tableID = count;
+            waitList.push(newTable);
+            res.json(newTable);
+        }
+    }  
 });
 
 // ** Start server to begin listening **

@@ -14,20 +14,24 @@ app.use(bodyParser.json());
 
 //Routes
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "view.html"));
+    res.sendFile(path.join(__dirname, "home.html"));
   });
   
   app.get("/add", function(req, res) {
-    res.sendFile(path.join(__dirname, "add.html"));
+    res.sendFile(path.join(__dirname, "make.html"));
+  });
+
+  app.get("/add", function(req, res) {
+    res.sendFile(path.join(__dirname, "view.html"));
   });
   
   // Displays all characters
-  app.get("/api/characters", function(req, res) {
+  app.get("/api/tables", function(req, res) {
     return res.json(characters);
   });
   
   // Displays a single character, or returns false
-  app.get("/api/characters/:character", function(req, res) {
+  app.get("/api/tables/:character", function(req, res) {
     var chosen = req.params.character;
   
     console.log(chosen);

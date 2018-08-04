@@ -38,11 +38,11 @@ app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "home.html"));
 });
 // Create GET make route
-app.get("/add", function (req, res) {
+app.get("/make", function (req, res) {
     res.sendFile(path.join(__dirname, "make.html"));
 });
 // Create GET view route
-app.get("/add", function (req, res) {
+app.get("/view", function (req, res) {
     res.sendFile(path.join(__dirname, "view.html"));
 });
 // Displays all characters route

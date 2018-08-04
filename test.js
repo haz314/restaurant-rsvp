@@ -45,9 +45,9 @@ app.get("/make", function (req, res) {
 app.get("/view", function (req, res) {
     res.sendFile(path.join(__dirname, "view.html"));
 });
-// Displays all characters route
+// Displays all tables route
 app.get("/api/tables", function (req, res) {
-    return res.json(characters);
+    return res.json(tables);
 });
 
 // ** POST Routes ** 
@@ -55,17 +55,20 @@ app.get("/api/tables", function (req, res) {
 app.post("/api/tables", function (req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body-parser middleware
-    var newcharacter = req.body;
+    let newTable = req.body;
 
-    // Using a RegEx Pattern to remove spaces from newCharacter
-    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
+    console.log(newTable);
 
-    console.log(newcharacter);
-
-    characters.push(newcharacter);
-
-    res.json(newcharacter);
+    // Check for open tables
+    if (tables.length < numTables) {
+        // Add reservation
+        tables.push(newTable);
+        res.json(newTable);
+    } else {
+        // Wait reservation
+        waitList.push(newTable);
+        res.json(newTable);
+    }
 });
 
 // ** Start server to begin listening **

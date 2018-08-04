@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/haz314/restaurant-rsvp/issues"
   },
-  "homepage": "https://github.com/haz314/restaurant-rsvp#readme"
+  "homepage": "https://github.com/haz314/restaurant-rsvp#readme",
+  "dependencies": {
+    "npm": "^6.3.0"
+  }
 }

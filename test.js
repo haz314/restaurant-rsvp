@@ -49,6 +49,10 @@ app.get("/view", function (req, res) {
 app.get("/api/tables", function (req, res) {
     return res.json(tables);
 });
+// Displays all wait list route
+app.get("/api/waitlist", function (req, res) {
+    return res.json(waitList);
+});
 
 // ** POST Routes ** 
 // Create POST route for new table

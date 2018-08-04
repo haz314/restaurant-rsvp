@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/haz314/restaurant-rsvp#readme",
   "dependencies": {
-    "npm": "^6.3.0"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
   }
 }
